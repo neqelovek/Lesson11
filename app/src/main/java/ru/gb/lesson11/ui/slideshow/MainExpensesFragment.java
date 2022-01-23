@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -16,22 +17,22 @@ import ru.gb.lesson11.databinding.FragmentMainExpensesBinding;
 public class MainExpensesFragment extends Fragment {
 
     private MainExpensesViewModel mainExpensesViewModel;
-private FragmentMainExpensesBinding binding;
+    private FragmentMainExpensesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState) {
         mainExpensesViewModel =
                 new ViewModelProvider(this).get(MainExpensesViewModel.class);
 
-    binding = FragmentMainExpensesBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
+        binding = FragmentMainExpensesBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
         mainExpensesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
-@Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
