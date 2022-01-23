@@ -10,29 +10,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import ru.gb.lesson11.R;
-import ru.gb.lesson11.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+import ru.gb.lesson11.databinding.FragmentBasicIncomeBinding;
 
-    private HomeViewModel homeViewModel;
-private FragmentHomeBinding binding;
+public class BasicIncomeFragment extends Fragment {
+
+    private BasicIncomeViewModel basicIncomeViewModel;
+private FragmentBasicIncomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        basicIncomeViewModel =
+                new ViewModelProvider(this).get(BasicIncomeViewModel.class);
 
-    binding = FragmentHomeBinding.inflate(inflater, container, false);
+    binding = FragmentBasicIncomeBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        basicIncomeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

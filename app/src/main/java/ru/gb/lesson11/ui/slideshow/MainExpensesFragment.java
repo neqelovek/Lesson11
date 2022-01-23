@@ -10,29 +10,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import ru.gb.lesson11.R;
-import ru.gb.lesson11.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+import ru.gb.lesson11.databinding.FragmentMainExpensesBinding;
 
-    private SlideshowViewModel slideshowViewModel;
-private FragmentSlideshowBinding binding;
+public class MainExpensesFragment extends Fragment {
+
+    private MainExpensesViewModel mainExpensesViewModel;
+private FragmentMainExpensesBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        mainExpensesViewModel =
+                new ViewModelProvider(this).get(MainExpensesViewModel.class);
 
-    binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+    binding = FragmentMainExpensesBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        mainExpensesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

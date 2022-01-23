@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_basic_income">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="ru.gb.lesson11.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_basic_income"
+        android:name="ru.gb.lesson11.ui.home.BasicIncomeFragment"
+        android:label="@string/basic_income"
+        tools:layout="@layout/fragment_basic_income" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="ru.gb.lesson11.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_additional_income"
+        android:name="ru.gb.lesson11.ui.gallery.AdditionalIncomeFragment"
+        android:label="@string/additional_income"
+        tools:layout="@layout/fragment_additional_income" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="ru.gb.lesson11.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_mandatory_expenses"
+        android:name="ru.gb.lesson11.ui.slideshow.MainExpensesFragment"
+        android:label="@string/mandatory_expenses"
+        tools:layout="@layout/fragment_main_expenses" />
+
+    <fragment
+        android:id="@+id/nav_additional_expenses"
+        android:name="ru.gb.lesson11.ui.additionalExpenses.AdditionalExpensesFragment"
+        android:label="@string/additional_expenses"
+        tools:layout="@layout/fragment_additional_expenses" />
 </navigation>

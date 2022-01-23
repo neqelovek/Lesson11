@@ -10,29 +10,25 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import ru.gb.lesson11.R;
-import ru.gb.lesson11.databinding.FragmentGalleryBinding;
 
-public class GalleryFragment extends Fragment {
+import ru.gb.lesson11.databinding.FragmentAdditionalIncomeBinding;
 
-    private GalleryViewModel galleryViewModel;
-private FragmentGalleryBinding binding;
+
+public class AdditionalIncomeFragment extends Fragment {
+
+    private AdditionalIncomeViewModel galleryViewModel;
+private FragmentAdditionalIncomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+                new ViewModelProvider(this).get(AdditionalIncomeViewModel.class);
 
-    binding = FragmentGalleryBinding.inflate(inflater, container, false);
+    binding = FragmentAdditionalIncomeBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
